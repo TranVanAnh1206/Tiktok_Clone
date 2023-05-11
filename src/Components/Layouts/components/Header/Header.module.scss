@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    height: 60px;
+    box-shadow: 0px 1px 1px rgba(0 0 0 / 12%);
+}
+
+.contents {
+    height: 100%;
+    width: var(--width-app-layout);
+    background-color: #ccc;
+    margin: 0 auto;
+}

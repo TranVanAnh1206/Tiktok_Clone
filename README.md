@@ -68,3 +68,68 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Tạo dự án bằng câu lệnh `npx create-react-app tiktok_clone`
+
+### Đây dự án lên github [https://github.com/TranVanAnh1212/Tiktok_Clone]
+
+### cài đặt thư viện customize-cra
+
+giúp dev có thể overwrite lại thư viên web-pack
+chạy `npm i customize-cra react-app-rewired -D`
+tạo ra file '~root/config-overrides.js' dán câu lệnh sau vào file vừa tạo
+
+```
+const { override, useBabelRc } = require("customize-cra");
+
+module.exports = override(
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useBabelRc()
+);
+
+```
+
+ghi đè câu lệnh dưới vào trong 'package.json/script'
+
+```
+"start": "react-app-rewired start",
+"build": "react-app-rewired build",
+"test": "react-app-rewired test",
+
+```
+
+### Cài đặt babel-plugin-module-resolver
+
+giúp cho import thư mục được gọn gàng hơn
+
+### Định cấu hình prettier ở trong file .prettierrc
+
+cài đặt extension prettier
+tạo 1 file `~root/.prettierrc' và dán đoạn code sau vào
+
+```
+{
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxSingleQuote": false,
+    "printWidth": 120,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
+}
+
+```
+
+### Cấu hình sử dụng SASS/SCSS
+
+chạy lệnh `npm i -D sass`

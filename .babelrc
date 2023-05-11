@@ -1,0 +1,43 @@
+// {
+//     "plugins": [
+//         [
+//             "module-resolver",
+//             {
+//                 "root": [
+//                     "./src"
+//                 ],
+//                 "alias": {
+//                     "test": "./test",
+//                     "underscore": "lodash"
+//                 }
+//             }
+//         ]
+//     ]
+// }
+// Description
+// This plugin can simplify the require/import paths in your project. For example, instead of using complex relative paths like ../../../../utils/my-utils, you can write utils/my-utils. It will allow you to work faster since you won't need to calculate how many levels of directory you have to go up before accessing the file.
+// // Use this:
+// import MyUtilFn from 'utils/MyUtilFn';
+// // Instead of that:
+// import MyUtilFn from '../../../../utils/MyUtilFn';
+// // And it also work with require calls
+// // Use this:
+// const MyUtilFn = require('utils/MyUtilFn');
+// // Instead of that:
+// const MyUtilFn = require('../../../../utils/MyUtilFn');
+// Không nên caaushinhf nhưu này bởi vì trông không khác gì khi import một thư viện
+// import MyUtilFn from 'utils/MyUtilFn';
+// import React from 'react';
+// Nên làm như sau
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "~": "./src"
+                }
+            }
+        ]
+    ]
+}
