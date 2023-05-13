@@ -1,4 +1,6 @@
 .wrapper {
+    --search-btn-width: 52px;
+
     display: flex;
     height: 60px;
     box-shadow: 0px 1px 1px rgba(0 0 0 / 12%);
@@ -7,6 +9,85 @@
 .contents {
     height: 100%;
     width: var(--width-app-layout);
-    background-color: #ccc;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-box {
+    width: 361px;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    // padding: 0px 16px;
+    overflow: hidden;
+    border-radius: 96px;
+    position: relative;
+    border: 1px solid transparent;
+    background-color: rgba(22, 22, 22, 0.06);
+
+    input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        caret-color: red;
+        font-size: 1.6rem;
+        color: var(--black);
+        outline: none;
+        padding: 0 16px;
+        background-color: transparent;
+    }
+
+    // Khi input có text thì màu của search-btn sẽ thay dổi
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 7.8);
+    }
+
+    // khi focus vào input thì sẽ có border
+    &:focus-within {
+        border: 1px solid rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-btn {
+    width: var(--search-btn-width);
+    font-size: 1.6rem;
+    cursor: pointer;
+    border: none;
+    padding-right: 16px;
+    color: rgb(166, 167, 172);
+    padding-left: 12px;
+    padding: 11px 16px 11px 12px;
+    position: relative;
+
+    &:hover {
+        background-color: rgba(22, 26, 32, 0.03);
+        color: var(--text-color);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0.5px solid #acacac;
+        height: 50%;
+        left: 0;
+    }
+
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.clear-btn,
+.loading {
+    position: absolute;
+    right: var(--search-btn-width);
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 10px;
+    color: rgba(22, 24, 35, 0.35);
+    cursor: pointer;
 }
