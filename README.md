@@ -133,3 +133,24 @@ tạo 1 file `~root/.prettierrc' và dán đoạn code sau vào
 ### Cấu hình sử dụng SASS/SCSS
 
 chạy lệnh `npm i -D sass`
+
+### Dùng thư viện để làm phần drop-down của thanh tìm kiếm hoặc tooltip
+
+chạy lệnh `npm i @tippyjs/react`
+kiểm tra phiên bản bằng cách gõ `cat package.json | grep tippy`
+
+vào file muốn cài tippy
+
+```
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+
+```
+
+ví dụ
+
+```
+<Tippy content="Tìm kiếm">
+    <input placeholder="Searching account and video ..." />
+</Tippy>
+```

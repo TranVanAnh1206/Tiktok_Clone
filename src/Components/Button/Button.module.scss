@@ -1,0 +1,123 @@
+.wrapper {
+    padding: 9px 8px;
+    font-size: 1.6rem;
+    background-color: var(--while-color);
+    border-radius: 4px;
+    min-width: 100px;
+    font-weight: 700;
+    min-height: 34px;
+    -webkit-user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    span {
+        display: inline-block;
+    }
+
+    &.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+}
+
+// Button type
+.rounded {
+    background: none;
+    outline: none;
+    color: rgba(22, 24, 35, 0.75);
+    border-radius: 52px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    transition: transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
+    transform-origin: right bottom;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(22, 24, 35, 0.12);
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 0 8px;
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 1);
+    border-color: var(--primary-color);
+
+    &:hover {
+        border-color: var(--primary-color);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.upload {
+    padding: 6px 12px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    background: rgba(255, 255, 255, 1);
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.follow {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: '';
+        border-width: 1px 30px;
+        border-style: solid;
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+    }
+
+    &:hover::after {
+        display: inline-block;
+    }
+}
+
+// Button size
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 150px;
+    padding: 14px 16px;
+}
+
+// icon
+.left-icon {
+    margin-right: 5px;
+}
+
+.right-icon {
+    margin-left: 5px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+}

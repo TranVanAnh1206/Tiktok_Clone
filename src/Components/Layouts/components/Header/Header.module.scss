@@ -13,10 +13,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .search-box {
-    width: 361px;
     height: 46px;
     display: flex;
     justify-content: space-between;
@@ -48,6 +48,11 @@
     &:focus-within {
         border: 1px solid rgba(22, 24, 35, 0.2);
     }
+}
+
+.search-box,
+.search-result {
+    width: 361px;
 }
 
 .search-btn {
@@ -89,5 +94,46 @@
     transform: translateY(-50%);
     margin: 0 10px;
     color: rgba(22, 24, 35, 0.35);
+    cursor: pointer;
+}
+
+.search-title {
+    padding: 5px 12px;
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+// users chưa log in
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-menu {
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 7px 14px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+// User đã login (User logged)
+
+.message,
+.inbox {
+    margin-left: 15px;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
     cursor: pointer;
 }

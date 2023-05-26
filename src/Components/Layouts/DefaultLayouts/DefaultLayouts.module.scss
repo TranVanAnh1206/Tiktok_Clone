@@ -7,6 +7,7 @@
     width: var(--width-app-layout);
     margin: 0 auto;
     display: flex;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .contents {

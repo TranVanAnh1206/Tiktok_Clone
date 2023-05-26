@@ -4,10 +4,13 @@
 :root {
     // Default layout
     --width-app-layout: 1150px;
+    --default-layout-horizontal-spacer: 24px;
 
     // color
+    --primary-color: rgba(254, 44, 85, 1);
     --black: #000;
     --text-color: #333;
+    --while-color: rgba(255, 255, 255, 1);
 }
 
 * {
@@ -28,6 +31,10 @@ body {
     color: var(--text-color);
 }
 
+button {
+    background-color: rgba($color: var(--while-color), $alpha: 1);
+}
+
 button,
 input,
 [tabindex] {
@@ -38,4 +45,6 @@ input,
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+    font-weight: normal;
+    line-height: normal;
 }
