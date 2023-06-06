@@ -19,7 +19,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     const currentMenu = history[history.length - 1];
 
     useEffect(() => {
-        console.log(currentMenu.data[0].children.data);
+        // console.log(currentMenu.data[0].children.data);
     }, []);
 
     const RenderMenu = () => {
@@ -49,6 +49,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
         <Tippy
             // mặc định sẽ là false, tức là không cho select,
             interactive
+            offset={[12, 8]}
             delay={[0, 700]}
             placement="bottom-end"
             render={(attrs) => (

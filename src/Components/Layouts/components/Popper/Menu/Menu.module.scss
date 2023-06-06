@@ -8,8 +8,10 @@
         border-radius: 0;
         font-weight: 500;
         letter-spacing: 0.3px;
-        padding: 11px 16px;
+        padding: 10px 16px;
         display: flex;
+        justify-content: flex-start;
+        align-items: center;
         margin-left: 0 !important;
     }
 }
@@ -19,6 +21,10 @@
 }
 
 .menu-item-child {
+    &.separate {
+        border-top: 1px solid #ccc;
+    }
+
     &:hover {
         background-color: rgba($color: #161823, $alpha: 0.03);
     }

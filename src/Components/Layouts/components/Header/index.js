@@ -4,17 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import {
-    faCircleQuestion,
-    faCircleXmark,
-    faEllipsisVertical,
-    faKeyboard,
-    faLanguage,
-    faMagnifyingGlass,
-    faMessage,
-    faPaperPlane,
-    faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faEllipsisVertical, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '../Popper';
@@ -22,12 +12,14 @@ import AccountItem from '~/Components/AccountItem';
 import Button from '../../../Button';
 import Menu from '../Popper/Menu';
 import userAvatar from '~/assets/images/sg-11134201-22100-mg9eqq6j0bivf2.jpg';
+import { SendMessageIcon } from '~/assets/Icons';
+import Image from '../Image';
 
 const cx = classNames.bind(style);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faLanguage} />,
+        icon: <span className="material-symbols-outlined">g_translate</span>,
         title: 'English',
         children: {
             title: 'Languages',
@@ -56,18 +48,20 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <span className="material-symbols-outlined">help</span>,
         title: 'Feedback and help',
         to: 'https://www.tiktok.com/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <span className="material-symbols-outlined">keyboard</span>,
         title: 'Keyboard',
     },
 ];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+
+    let currentUser = true;
 
     useEffect(() => {
         setTimeout(() => {
@@ -85,7 +79,40 @@ function Header() {
         }
     };
 
-    const currentUser = true;
+    const USER_MENU = [
+        {
+            icon: <span className="material-symbols-outlined">person</span>,
+            title: 'View profile',
+            to: '/@TranVanAnh1212',
+        },
+        {
+            icon: <span className="material-symbols-outlined">bookmark</span>,
+            title: 'Favorites',
+            to: '/@TranVanAnh1212',
+        },
+        {
+            icon: <span className="material-symbols-outlined">monetization_on</span>,
+            title: 'Get Coins',
+            to: '/coins',
+        },
+        {
+            icon: <span className="material-symbols-outlined">monitoring</span>,
+            title: 'View Analystics',
+            to: '/analystics',
+        },
+        {
+            icon: <span className="material-symbols-outlined">settings</span>,
+            title: 'Setting',
+            to: '/setting',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <span className="material-symbols-outlined">login</span>,
+            title: 'Log out',
+            // to: '',
+            separate: true,
+        },
+    ];
 
     return (
         <header className={cx('wrapper')}>
@@ -207,15 +234,16 @@ function Header() {
                                     Upload
                                 </Button>
                             </Tippy>
-                            <Tippy content="Message">
+
+                            <Tippy content="Message" placement="bottom">
                                 <button className={cx('message')} placement="bottom">
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <SendMessageIcon />
                                 </button>
                             </Tippy>
 
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('inbox')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <span className="material-symbols-outlined">chat</span>
                                 </button>
                             </Tippy>
                         </div>
@@ -227,9 +255,14 @@ function Header() {
                             {/* Menu */}
                         </>
                     )}
-                    <Menu items={MENU_ITEMS} onChange={HandleMenuChange}>
+                    <Menu items={currentUser ? USER_MENU : MENU_ITEMS} onChange={HandleMenuChange}>
                         {currentUser ? (
-                            <img className={cx('user-avatar')} src={userAvatar} alt="Trần Văn Anh đẹp trai" />
+                            <Image
+                                className={cx('user-avatar')}
+                                src={userAvatar}
+                                alt="Trần Văn Anh đẹp trai"
+                                // fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                            />
                         ) : (
                             <>
                                 <button className={cx('user-menu')}>
